@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  color: #161616;
+}
+
 :root {
   --color-primary: #D73953;
   --color-black: #090909;
@@ -9,10 +13,6 @@ html {
   --color-light-grey: #f3f3f3;
   --dark-grey: #353535;
   --text-color: var(--color-black);
-}
-
-body {
-  color: #161616;
 }
 
 a {
