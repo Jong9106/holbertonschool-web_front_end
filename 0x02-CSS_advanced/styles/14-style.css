@@ -1,4 +1,5 @@
-/* Normalize */
+/*Normalize*/
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -166,6 +167,7 @@ template {
 }
 
 /* General style sheet */
+
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
