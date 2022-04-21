@@ -264,7 +264,7 @@ a:active {
 }
 
 .container {
-  width: 960%;
+  width: 960px;
   margin-left: auto;
   margin-right: auto;
 }
