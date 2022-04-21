@@ -239,7 +239,7 @@ a:hover {
 }
 
 a:active {
-  background-color: var(--color-light-grey)
+  background-color: var(--color-light-grey);
 }
 
 .visually-hidden {
@@ -289,6 +289,6 @@ a:active {
   margin-right: auto;
 }
 
-footer {
+.footer {
   padding: var(--footer-padding);
 }
