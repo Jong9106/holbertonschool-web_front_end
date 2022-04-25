@@ -465,7 +465,7 @@ ul.row {
 }
 
 .header-logo {
-  position: var(--header-logo-padding);
+  position: var(--header-logo-position);
 }
 
 .header-logo a {
