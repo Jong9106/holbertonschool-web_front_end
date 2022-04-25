@@ -1,5 +1,5 @@
 /*-- Margin Mixin --*/
-@mixin margin($margins: 10px) {
+@mixin margins($margins: 10px) {
     margin-left: $margins;
     margin-right: $margins;
 }
