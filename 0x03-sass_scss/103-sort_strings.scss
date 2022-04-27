@@ -1,0 +1,51 @@
+@import "103-sort_list";
+
+$default-sort-validate: a b c d e f g h i j k l m n o p q r s t u v w x y z !default;
+
+/// @param {String} $str_a
+/// @param {String} $str-b
+/// @param {List} $validate
+
+@function str-compare($str_a, $str-b, $validate: $default-sort-validate) {
+	$str_a: to-lower-case($str_a);
+	$str-b: to-lower-case($str-b);
+
+	@for $i from 1 through min(str-length($str_a), str-length($str-b)) {
+		$char-a: str-slice($str_a, $i, $i);
+		$char-b: str-slice($str-b, $i, $i);
+
+		@if $char-a and $char-b and index($validate, $char-a) != index($validate, $char-b) {
+			@return index($validate, $char-a) < index($validate, $char-b);
+		}
+	}
+
+	@return str-length($str_a) < str-length($str-b);
+}
+
+/// @param {List} $list
+/// @param {Number} $a
+/// @param {Number} $b
+/// @return {List}
+@function swap($list, $index-a, $index-b) {
+	@if abs($index-a) > length($list) or abs($index-b) > length($list) {
+		@return $list;
+	}
+	$tmp: nth($list, $index-a);
+	$list: set-nth($list, $index-a, nth($list, $index-b));
+	$list: set-nth($list, $index-b, $tmp);
+	@return $list;
+}
+
+@function sort($list, $validate: $default-sort-validate) {
+	@for $i from 1 through length($list) {
+		@for $j from $i through 1 {
+			@if $j > 1 and str-compare(nth($list, $j), nth($list, $j - 1), $validate) {
+				$list: swap($list, $j, $j - 1);
+			}
+		}
+	}
+
+	@return $list;
+}
+
+@debug sort($list_to_sort);
