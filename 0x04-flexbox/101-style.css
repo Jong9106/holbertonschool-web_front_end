@@ -1,0 +1,63 @@
+:root {
+    --custom-box1: #6100e0;
+    --custom-box2: #30b5dc;
+    --custom-box3: #66b111;
+    --custom-box4: #ebc20c;
+    --custom-box5: #eb0c0c;
+  }
+  .container {
+    width: 1400px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .box {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box1,
+  .box5 {
+    width: 9%;
+    height: 45%;
+    font-size: 1.5rem;
+  }
+  
+  .box2,
+  .box4 {
+    width: 15%;
+    height: 70%;
+    font-size: 4rem;
+  }
+
+  .box3 {
+    width: 25%;
+    height: 110%;
+    font-size: 8.5rem;
+  }
+  
+  .box1 {
+    background-color: var(--custom-box1);
+  }
+  
+  .box2 {
+    background-color: var(--custom-box2);
+  }
+
+  .box3 {
+    background-color: var(--custom-box3);
+  }
+  
+  .box4 {
+    background-color: var(--custom-box4);
+  }
+  
+  .box5 {
+    background-color: var(--custom-box5);
+  }
+  
