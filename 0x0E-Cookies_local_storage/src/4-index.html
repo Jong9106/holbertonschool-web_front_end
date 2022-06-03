@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+
+	<title>Task 4</title>
+</head>
+
+<body>
+	<div id="show-form">
+		<h2>Login to the website</h2>
+		<input type="text" id="firstname" placeholder="Firstname">
+		<input type="text" id="email" placeholder="Email">
+		<button onclick="setCookies()">Log me in</button>
+	</div>
+
+	<script type="application/javascript">
+
+		function setCookies() {
+			const firstName = document.getElementById('firstname').value;
+			document.cookie = `firstname=${firstName};max-age=864000`;
+
+			const email = document.getElementById('email').value;
+			document.cookie = `email=${email};max-age=864000`;
+
+			showWelcomeMessageOrForm();
+		}
+
+		function showCookies() {
+			const firstName = getCookie('firstname');
+			const email = getCookie('email');
+
+			const p = document.createElement('p');
+			p.textContent = `Email: ${email} - Firstname: ${firstName}`;
+			document.body.appendChild(p);
+		}
+
+		function showForm() {
+			document.getElementById('show-form').style.display = 'block';
+		}
+
+		function hideForm() {
+			document.getElementById('show-form').style.display = 'none';
+		}
+
+		function deleteCookiesAndShowForm() {
+			document.cookie = 'firstname=; email=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+			Cookies.remove('firstname');
+			Cookies.remove('email');
+			showForm();
+		}
+
+		function showWelcomeMessageOrForm() {
+			const firstName = Cookies.get('firstname');
+			const email = Cookies.get('email');
+
+			const h1 = document.createElement('h1');
+			const a = document.createElement('a');
+			h1.setAttribute('id', 'welcome-msg');
+			h1.innerText = `Welcome ${firstName}`;
+			a.innerText = '(logout)';
+			a.setAttribute('onclick', 'deleteCookiesAndShowForm()');
+			h1.appendChild(a);
+
+			if (firstName && email) {
+				hideForm();
+				document.body.appendChild(h1);
+			} else {
+				showForm();
+			}
+		}
+
+		showWelcomeMessageOrForm();
+	</script>
+</body>
+
+</html>
